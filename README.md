@@ -11,9 +11,8 @@ The platform SDK repository is grouped by platform. The following five categorie
 
 1. Documentation 
 
-   [] hardware specification
-
-   [] TBD
+   [ ] hardware specification
+   [ ] TBD
 
 2. OS 
    [] BSP configuration and code
