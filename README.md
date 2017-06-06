@@ -7,7 +7,7 @@ Delta Platform SDK is a set of configurations, OS patches, BSP, software compone
 
 
 ## Contents 
-The platform SDK repository is grouped by platform. The following five categories of information are required to complete the SDK deliverable for a given platform: documentation, OS, adaption layer, network layer and tutorial.
+The platform SDK repository is grouped by platform. The following five categories of information are required to complete the SDK deliverable for a given platform: documentation, OS, adaptation layer, network layer and tutorial.
 
 1. Documentation 
 
@@ -35,41 +35,41 @@ The platform SDK repository is grouped by platform. The following five categorie
 
    [ ] Delta hardware SDK (in python, java, c etc.)
 
-	    [ ] python binding hardware SDK source code, binary and reference 
+	 [ ] python binding hardware SDK source code, binary and reference 
 
 
-	    [ ] C binding hardware SDK source code, binary and reference
+	 [ ] C binding hardware SDK source code, binary and reference
 
 
-	    [ ] (optional) Java binding hardware SDK source code, binary and reference
+	 [ ] (optional) Java binding hardware SDK source code, binary and reference
 
-       [ ] OFDPA 
+   [ ] OFDPA 
 
-            [ ] instruction for patch, build and install
+         [ ] instruction for patch, build and install
 
-            [ ] sample app invoking OFDPA
+         [ ] sample app invoking OFDPA
 
 4. Network layer 
 
    Network applications and libaries including but not limited to 
 
-       [ ] switch SDK (broadcom SDK etc.)
+   [ ] switch SDK (broadcom SDK etc.)
 
-            [ ] instruction for patch, build and install
+         [ ] instruction for patch, build and install
 
-            [ ] sample app invoking switch SDK
+         [ ] sample app invoking switch SDK
 
-       [ ] OpenNSL 
+   [ ] (optional) OpenNSL 
 
-            [ ] instruction for patch, build and install
+         [ ] instruction for patch, build and install
 
-            [ ] sample app invoking openNSL 
+         [ ] sample app invoking openNSL 
 
-       [ ] SAI
+   [ ] (optional) SAI
 
-            [ ] instruction for patch, build and install
+         [ ] instruction for patch, build and install
 
-            [ ] sample app invoking SAI
+         [ ] sample app invoking SAI
 
 5. Tutorial 
 
