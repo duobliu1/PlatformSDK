@@ -33,21 +33,21 @@ The platform SDK repository is grouped by platform. The following five categorie
 
    [ ] linux distribution agnostic API and implementation to control the platform environment 
 
-   [ ] Delta hardware SDK (in python, java, c etc.)
+   [ ] Delta hardware SDK 
 
-	 [ ] python binding hardware SDK source code, binary and reference 
-
-
-	 [ ] C binding hardware SDK source code, binary and reference
+         [] python binding hardware SDK source code, binary and reference 
 
 
-	 [ ] (optional) Java binding hardware SDK source code, binary and reference
+	 [] C binding hardware SDK source code, binary and reference
+
+
+	 [] (optional) Java binding hardware SDK source code, binary and reference
 
    [ ] OFDPA 
 
-         [ ] instruction for patch, build and install
+         [] instruction for patch, build and install
 
-         [ ] sample app invoking OFDPA
+         [] sample app invoking OFDPA
 
 4. Network layer 
 
@@ -55,21 +55,21 @@ The platform SDK repository is grouped by platform. The following five categorie
 
    [ ] switch SDK (broadcom SDK etc.)
 
-         [ ] instruction for patch, build and install
+         [] instruction for patch, build and install
 
-         [ ] sample app invoking switch SDK
+         [] sample app invoking switch SDK
 
    [ ] (optional) OpenNSL 
 
-         [ ] instruction for patch, build and install
+         [] instruction for patch, build and install
 
-         [ ] sample app invoking openNSL 
+         [] sample app invoking openNSL 
 
    [ ] (optional) SAI
 
-         [ ] instruction for patch, build and install
+         [] instruction for patch, build and install
 
-         [ ] sample app invoking SAI
+         [] sample app invoking SAI
 
 5. Tutorial 
 
