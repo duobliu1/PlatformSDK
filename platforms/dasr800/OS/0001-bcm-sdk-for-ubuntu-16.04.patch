@@ -1,0 +1,164 @@
+From e4e14a3d14a17d11341c603161759736342776b5 Mon Sep 17 00:00:00 2001
+From: root <root@dasr800-ubuntu.delta.corp>
+Date: Mon, 28 Nov 2016 06:41:04 +0000
+Subject: [PATCH] bcm sdk for ubuntu 16.04
+
+---
+ make/Make.config                           | 2 +-
+ make/Makefile.linux-kernel                 | 2 +-
+ make/Makefile.linux-kernel-2_6             | 2 +-
+ make/Makefile.linux-kernel-3_6             | 2 +-
+ make/Makefile.linux-kernel-4_4             | 2 +-
+ make/Makefile.linux-x86-smp_generic_64-2_6 | 6 ++++++
+ make/Makefile.unix-common                  | 2 +-
+ make/Makefile.unix-user                    | 4 ++--
+ make/Makefile.vxworks-common               | 2 +-
+ src/sal/appl/unix/sal.c                    | 2 +-
+ 10 files changed, 16 insertions(+), 10 deletions(-)
+
+diff --git a/make/Make.config b/make/Make.config
+index e180726..3479816 100755
+--- a/make/Make.config
++++ b/make/Make.config
+@@ -1119,7 +1119,7 @@ endif
+ ifneq (,$(findstring MACSEC,$(FEATURE_LIST)))
+ BUILD_MACSEC = 1
+ FEATURE_MACSEC = 1
+-MACSEC_BUILD_FLAG=-DBROADCOM_SAL -I${SDK} -I${SDK}/include -g -Wall -Werror -fno-strict-aliasing
++MACSEC_BUILD_FLAG=-DBROADCOM_SAL -I${SDK} -I${SDK}/include -g -Wall -fno-strict-aliasing
+ 
+ MACSEC_BUILD_FLAG += ${STD_CFLAGS}
+ 
+diff --git a/make/Makefile.linux-kernel b/make/Makefile.linux-kernel
+index ad97646..80e2bf9 100644
+--- a/make/Makefile.linux-kernel
++++ b/make/Makefile.linux-kernel
+@@ -105,7 +105,7 @@ STD_CFLAGS = $(KFLAGS) $(CFGFLAGS)
+ STD_CPPFLAGS = ${STD_CFLAGS}
+ STD_CXXFLAGS = ${STD_CFLAGS}
+ 
+-BCM_CFLAGS   = -Wall -Werror
++BCM_CFLAGS   = -Wall 
+ BCM_CPPFLAGS = ${BCM_CFLAGS}
+ BCM_CXXFLAGS = ${BCM_CFLAGS}
+ 
+diff --git a/make/Makefile.linux-kernel-2_6 b/make/Makefile.linux-kernel-2_6
+index ad095c4..eda904f 100644
+--- a/make/Makefile.linux-kernel-2_6
++++ b/make/Makefile.linux-kernel-2_6
+@@ -139,7 +139,7 @@ STD_CPPFLAGS = ${STD_CFLAGS}
+ STD_CXXFLAGS = ${STD_CFLAGS}
+ 
+ ifndef BCM_CFLAGS
+-BCM_CFLAGS   = -Wall -Werror
++BCM_CFLAGS   = -Wall 
+ endif
+ 
+ BCM_CPPFLAGS = ${BCM_CFLAGS}
+diff --git a/make/Makefile.linux-kernel-3_6 b/make/Makefile.linux-kernel-3_6
+index ab5bcc9..c8c296b 100644
+--- a/make/Makefile.linux-kernel-3_6
++++ b/make/Makefile.linux-kernel-3_6
+@@ -139,7 +139,7 @@ STD_CPPFLAGS = ${STD_CFLAGS}
+ STD_CXXFLAGS = ${STD_CFLAGS}
+ 
+ ifndef BCM_CFLAGS
+-BCM_CFLAGS   = -Wall -Werror
++BCM_CFLAGS   = -Wall 
+ endif
+ 
+ BCM_CPPFLAGS = ${BCM_CFLAGS}
+diff --git a/make/Makefile.linux-kernel-4_4 b/make/Makefile.linux-kernel-4_4
+index 0ef459b..06e5f09 100644
+--- a/make/Makefile.linux-kernel-4_4
++++ b/make/Makefile.linux-kernel-4_4
+@@ -147,7 +147,7 @@ STD_CPPFLAGS = ${STD_CFLAGS}
+ STD_CXXFLAGS = ${STD_CFLAGS}
+ 
+ ifndef BCM_CFLAGS
+-BCM_CFLAGS   = -Wall -Werror
++BCM_CFLAGS   = -Wall 
+ endif
+ 
+ BCM_CPPFLAGS = ${BCM_CFLAGS}
+diff --git a/make/Makefile.linux-x86-smp_generic_64-2_6 b/make/Makefile.linux-x86-smp_generic_64-2_6
+index cdd0092..e9f3c1a 100644
+--- a/make/Makefile.linux-x86-smp_generic_64-2_6
++++ b/make/Makefile.linux-x86-smp_generic_64-2_6
+@@ -45,6 +45,12 @@ CFGFLAGS += -DLONGS_ARE_64BITS
+ CFGFLAGS += -DPTRS_ARE_64BITS
+ CFGFLAGS += -DSAL_SPL_LOCK_ON_IRQ
+ 
++CFGFLAGS += -DBDE_LINUX_USE_MSI_INTERRUPT
++CFGFLAGS += -DSAL_BDE_32BIT_USER_64BIT_KERNEL
++CFGFLAGS += -DCOMPILER_OVERRIDE_NO_INLINE
++
++LINUX_UAPI_SPLIT=1
++
+ include ${SDK}/make/Makefile.linux-x86-generic-common-2_6
+ 
+ ifeq (,$(KFLAGS))
+diff --git a/make/Makefile.unix-common b/make/Makefile.unix-common
+index f463bd9..6fb2fe7 100644
+--- a/make/Makefile.unix-common
++++ b/make/Makefile.unix-common
+@@ -84,7 +84,7 @@ STD_CFLAGS = -D_REENTRANT -D${TARGETTYPE} -D${OSTYPE} ${CFGFLAGS} \
+ STD_CPPFLAGS = ${STD_CFLAGS}
+ STD_CXXFLAGS = ${STD_CFLAGS}
+ 
+-BCM_CFLAGS   = -Wall -Werror ${BCM_EXTRA_CC_CFLAGS}
++BCM_CFLAGS   = -Wall ${BCM_EXTRA_CC_CFLAGS}
+ 
+ BCM_CPPFLAGS = ${BCM_CFLAGS}
+ BCM_CXXFLAGS = ${BCM_CFLAGS}
+diff --git a/make/Makefile.unix-user b/make/Makefile.unix-user
+index f3c6fb9..7a69822 100644
+--- a/make/Makefile.unix-user
++++ b/make/Makefile.unix-user
+@@ -110,7 +110,7 @@ endif
+ STD_CPPFLAGS = ${STD_CFLAGS}
+ STD_CXXFLAGS = ${STD_CFLAGS}
+ 
+-BCM_CFLAGS   = -Wall -Werror -fno-strict-aliasing
++BCM_CFLAGS   = -Wall -fno-strict-aliasing
+ ifeq ($(platform), iproc-3_6)
+ ifeq (BE,$(ENDIAN_MODE))
+ BCM_CFLAGS   += -Werror=format-security
+@@ -119,7 +119,7 @@ endif
+ 
+ ifeq ($(platform), robo-bsp-2_6)
+ ifeq (2.0,$(WRS_LINUX_VERSION))
+-BCM_CFLAGS   = -Wall -Werror -fno-strict-aliasing  -Wno-pointer-sign
++BCM_CFLAGS   = -Wall -fno-strict-aliasing  -Wno-pointer-sign
+ endif
+ endif
+ 
+diff --git a/make/Makefile.vxworks-common b/make/Makefile.vxworks-common
+index b3951b6..b570872 100644
+--- a/make/Makefile.vxworks-common
++++ b/make/Makefile.vxworks-common
+@@ -79,7 +79,7 @@ ifndef BCM_CSTANDARD
+ BCM_CSTANDARD = -std=c89
+ endif
+ 
+-BCM_CFLAGS   = -Wall -Werror ${BCM_CSTANDARD}
++BCM_CFLAGS   = -Wall ${BCM_CSTANDARD}
+ 
+ BCM_CPPFLAGS = ${BCM_CFLAGS}
+ BCM_CXXFLAGS = ${BCM_CFLAGS}
+diff --git a/src/sal/appl/unix/sal.c b/src/sal/appl/unix/sal.c
+index 264bc52..3e99c66 100755
+--- a/src/sal/appl/unix/sal.c
++++ b/src/sal/appl/unix/sal.c
+@@ -192,7 +192,7 @@ sal_appl_init(void)
+ void
+ sal_reboot(void)
+ {
+-    exit(0);
++    //exit(0);
+ }
+ 
+ /*
+-- 
+2.7.4
+
