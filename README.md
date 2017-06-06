@@ -36,12 +36,10 @@ The platform SDK repository is grouped by platform. The following five categorie
    [ ] Delta hardware SDK 
 
          [] python binding hardware SDK source code, binary and reference 
+         
+         [] C binding hardware SDK source code, binary and reference 
 
-
-	 [] C binding hardware SDK source code, binary and reference
-
-
-	 [] (optional) Java binding hardware SDK source code, binary and reference
+         [] (optional) Java binding hardware SDK source code, binary and reference
 
    [ ] OFDPA 
 
