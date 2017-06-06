@@ -3,7 +3,7 @@
 
 ## Overview
 
-Delta Platform SDK is a set of configurations, OS patches, BSP, libaries and instructions on how to build and release SDK for Delta platforms. It provides a systematic way to help Delta partners and customers bring up their software on Delta platforms easily and quickly.
+Delta Platform SDK is a set of configurations, OS patches, BSP, software components and instructions on how to build and release SDK for Delta platforms. It provides a systematic way to help Delta partners and customers bring up their software on Delta platforms easily and quickly.
 
 
 ## Contents 
@@ -29,15 +29,29 @@ The platform SDK repository is grouped by platform. The following five categorie
 
    [ ] OS image build instruction (kernel + BSP + linux distribution)
 
-3. Adaption layer  
+3. Adaptation layer   
 
-   [ ] linux distribution agnostic API to control the platform environment 
+   [ ] linux distribution agnostic API and implementation to control the platform environment 
 
-   [ ] API implementation 
+   [ ] Delta hardware SDK (in python, java, c etc.)
+
+	    [ ] python binding hardware SDK source code, binary and reference 
+
+
+	    [ ] C binding hardware SDK source code, binary and reference
+
+
+	    [ ] (optional) Java binding hardware SDK source code, binary and reference
+
+       [ ] OFDPA 
+
+            [ ] instruction for patch, build and install
+
+            [ ] sample app invoking OFDPA
 
 4. Network layer 
 
-   Networking libaries, components and applications including but not limited to 
+   Network applications and libaries including but not limited to 
 
        [ ] switch SDK (broadcom SDK etc.)
 
@@ -51,12 +65,6 @@ The platform SDK repository is grouped by platform. The following five categorie
 
             [ ] sample app invoking openNSL 
 
-       [ ] OFDPA 
-
-            [ ] instruction for patch, build and install
-
-            [ ] sample app invoking OFDPA
-
        [ ] SAI
 
             [ ] instruction for patch, build and install
@@ -65,7 +73,7 @@ The platform SDK repository is grouped by platform. The following five categorie
 
 5. Tutorial 
 
-   Step by step instruction on how to write, build and run a sample application to invoke Delta's Platform SDK to enable white-box switching.
+   Step by step instruction on how to write, build and run a sample application invoking Delta's Platform SDK to enable white-box switching.
 
 
 # Legal
