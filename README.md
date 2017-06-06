@@ -10,7 +10,9 @@ Delta Platform SDK is a set of configurations, OS patches, BSP, libaries and ins
 The platform SDK repository is grouped by platform. The following five categories of information are required to complete the SDK deliverable for a given platform: documentation, OS, adaption layer, network layer and tutorial.
 
 1. Documentation 
-   \[\] hardware specification
+
+   [] hardware specification
+
    [] TBD
 
 2. OS 
